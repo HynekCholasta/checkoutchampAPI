@@ -1,0 +1,8 @@
+node_modules/
+.env
+*.log
+cookies.json
+dashboard.html
+authorization.json
+report_result.txt
+captured_requests.json
