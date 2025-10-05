@@ -137,7 +137,7 @@ async function getCheckoutChampAuth() {
       },
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
-        'X-COMPANY-ID': authData.companyId || '4623',
+        'X-COMPANY-ID': authData.companyId,
         'X-CSRF-Token': authData.csrf || null,
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36',
         'Referer': 'https://crm.checkoutchamp.com/reports/order-details/',
