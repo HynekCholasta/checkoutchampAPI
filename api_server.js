@@ -152,7 +152,7 @@ async function getCheckoutChampAuth() {
       session_info: {
         timestamp: new Date().toISOString(),
         username: USER,
-        company_id: authData.companyId || '4623',
+        company_id: authData.companyId,
         session_timeout_minutes: 240
       }
     };
