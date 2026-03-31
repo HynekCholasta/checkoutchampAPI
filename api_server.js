@@ -77,7 +77,7 @@ async function getCheckoutChampAuth() {
       page.click('#loginBtn')
     ]);
 
-    await page.waitFor(2000);
+    await page.waitForTimeout(2000);
 
     // 3) Verify login
     const currentURL = page.url();
