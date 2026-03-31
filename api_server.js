@@ -65,15 +65,15 @@ async function getCheckoutChampAuth() {
   try {
     // 1) Open login page
     console.log('Loading login page...');
-    await page.goto(LOGIN_URL, { waitUntil: 'domcontentloaded', : 59000 });
+    await page.goto(LOGIN_URL, { waitUntil: 'domcontentloaded', timeout : 59000 });
 
     // 2) Fill credentials and submit
     console.log('Logging in...');
-    await page.fill('input[name="userName"]', USER, { : 5000 });
-    await page.fill('input[name="password"]', PASS, { : 5000 });
+    await page.fill('input[name="userName"]', USER, { timeout : 5000 });
+    await page.fill('input[name="password"]', PASS, { timeout : 5000 });
 
     await Promise.all([
-      page.waitForNavigation({ waitUntil: 'networkidle', : 59000 }).catch(() => null),
+      page.waitForNavigation({ waitUntil: 'networkidle', timeout : 59000 }).catch(() => null),
       page.click('#loginBtn')
     ]);
 
@@ -84,7 +84,7 @@ async function getCheckoutChampAuth() {
     let loggedIn = currentURL.includes(DASHBOARD_URL_PART) || (await page.$('body >> text=reports') !== null);
 
     if (!loggedIn) {
-      await page.goto(`${BASE}/dashboard/`, { waitUntil: 'networkidle', timeout: 59000 }).catch(() => null);
+      await page.goto(`${BASE}/dashboard/`, { waitUntil: 'networkidle', timeout : 59000 }).catch(() => null);
       const url2 = page.url();
       loggedIn = url2.includes(DASHBOARD_URL_PART) || (await page.$('body >> text=reports') !== null);
     }
